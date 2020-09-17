@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      commander: 指揮官
+    attributes:
+      user:
+        name: ユーザーネーム
+        password: パスワード
+        password_confirmation: 確認用パスワード

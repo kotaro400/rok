@@ -1,0 +1,17 @@
+<%= render "application/header" %>
+
+<div class="commanders">
+  <h2>指揮官一覧</h2>
+  <% @commanders.each do |commander| %>
+    <div class="commander">
+      <div>
+        <% if commander.rarity == "レジェンド" %>
+          <%= image_tag "commander", class: "legend-icon" %>
+        <% else %>
+          <%= image_tag "commander", class: "epic-icon" %>
+        <% end %>
+      </div>
+      <p><%= commander.name %></p>
+    </div>
+  <% end %>
+</div>

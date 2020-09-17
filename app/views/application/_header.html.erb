@@ -1,0 +1,10 @@
+<header>
+  <h1>Rise of Kingdoms</h1>
+  <% if current_user %>
+    <%= image_tag "battle", id: "open-menu" %>
+  <% end %>
+  <div class="menu">
+    <span id="close-menu">✖︎</span>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+   </div>
+</header>

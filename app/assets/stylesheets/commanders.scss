@@ -1,0 +1,41 @@
+// Place all the styles related to the commanders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.commanders{
+  width: 85%;
+  margin: 0 auto;
+
+  h2{
+    margin: 20px;
+    text-align: center;
+  }
+
+  .commander{
+    display: flex;
+    flex-flow: row nowrap;
+    box-shadow: 3px 3px 10px 2px rgba(0,0,0,0.2);
+    margin: 15px 0;
+    padding: 10px;
+
+    img{
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 5px;
+      border: 2px solid #ff9123;
+    }
+
+    .legend-icon{
+      border: 3px solid #ff9123;
+    }
+
+    .epic-icon{
+      border: 3px solid #8e1eff;
+    }
+
+    p{
+      margin-left: 20px;
+      font-size: 20px;
+    }
+  }
+}
