@@ -1,0 +1,54 @@
+<%= render "application/header" %>
+
+<div class="team-show">
+  <h2><%= @team.title %></h2>
+  <%= simple_format(@team.details) %>
+
+  <div class="units">
+    <% @team.units.each_with_index do |unit, i| %>
+      <div class="unit">
+        <h4>部隊<%= i + 1 %></h4>
+        <div class="unit-main">
+          <% case unit.main_commander.rarity %>
+          <% when "レジェンド" %>
+            <%= image_tag "commander_#{unit.main_commander.id}_icon", class: "legend-icon" %>
+          <% when "エピック" %>
+            <%= image_tag "commander_#{unit.main_commander.id}_icon", class: "epic-icon" %>
+          <% end %>
+          <p><%= unit.main_commander.name %></p>
+        </div>
+        <div class="unit-sub">
+          <% if unit.sub_commander %>
+            <% case unit.sub_commander.rarity %>
+            <% when "レジェンド" %>
+              <%= image_tag "commander_#{unit.sub_commander.id}_icon", class: "legend-icon" %>
+            <% when "エピック" %>
+              <%= image_tag "commander_#{unit.sub_commander.id}_icon", class: "epic-icon" %>
+            <% end %>
+            <p><%= unit.sub_commander.name %></p>
+          <% else %>
+            <%= image_tag "commander_1_icon" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% @team.commanders.each do |commander| %>
+    <p class="teams-sculpture-count">
+      <strong><%= commander.name %></strong>の覚醒まで<br>あと彫像
+      <span>
+        <% if commander.users_commander(current_user.id) %>
+          <%= commander.users_commander(current_user.id).sculpture_count %>
+        <% else %>
+          <%= commander.max_sculpture_count %>
+        <% end %>
+      </span>
+      個
+    </p>
+  <% end %>
+  <% if @team.user == current_user %>
+    <div class="delete-team">
+      <%= link_to "この編成を削除", team_path(@team), method: :delete, data: {confirm: "削除しますか？"} %>
+    </div>
+  <% end %>
+</div>

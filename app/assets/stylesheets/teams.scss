@@ -1,0 +1,164 @@
+// Place all the styles related to the teams controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.team-form{
+  padding: 30px;
+
+  h3{
+    font-size: 23px;
+  }
+
+  .team-field{
+    margin: 20px 0;
+
+    label{
+      display: block;
+      margin: 5px 0;
+    }
+
+    input, select{
+      width: 70%;
+      font-size: 18px;
+      padding: 7px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+
+    textarea{
+      width: 100%;
+      font-size: 18px;
+      padding: 7px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+  }
+
+  .team-action{
+    text-align: center;
+
+    input{
+      width: 50%;
+      font-size: 18px;
+      padding: 10px;
+      background-color: #2893ff;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+}
+
+.teams{
+  text-align: center;
+
+  .team{
+    text-align: left;
+
+    .team-info{
+      .team-title{
+        font-weight: bold;
+      }
+
+      .team-details{
+        font-size: 15px;
+      }
+    }
+  }
+
+  .new-team-link{
+    display: inline-block;
+    font-size: 45px;
+    margin-top: 20px;
+  }
+}
+
+.team-show{
+  h2{
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  p{
+    width: 80%;
+    margin: 0 auto;
+    color: #707070;
+  }
+
+  .units{
+    display: flex;
+    flex-flow: column;
+    margin: 20px 0;
+
+    .unit{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      width: 60%;
+      margin: 10px auto;
+
+      .unit-main, .unit-sub{
+        text-align: center;
+        width: 70px;
+
+        img{
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+          border-radius: 5px;
+        }
+
+        .legend-icon{
+          border: 3px solid #ff9123;
+        }
+
+        .epic-icon{
+          border: 3px solid #8e1eff;
+        }
+
+        p{
+          text-align: center;
+          font-size: 10px;
+          color: #333;
+          width: 100%;
+        }
+      }
+
+      .unit-sub{
+        width: 50px;
+        img{
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+
+  .teams-sculpture-count{
+    color: #333;
+    margin: 10px auto;
+
+    span{
+      font-size: 23px;
+      font-weight: bold;
+      color: #e0b020;
+    }
+  }
+
+  .delete-team{
+    text-align: center;
+    margin: 20px auto;
+
+    a{
+      display: inline-block;
+      padding: 10px;
+      background-color: #ff4747;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+}

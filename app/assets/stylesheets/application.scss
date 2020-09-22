@@ -48,6 +48,18 @@ input[type="button"]::focus {
   outline-offset: -2px;
 }
 
+input,textarea {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-appearance: none;
+    max-width: 100%;
+}
+
+select {
+    -webkit-appearance: button;
+    appearance: button;
+}
 
 header{
   box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.2);
@@ -62,7 +74,7 @@ header{
   img{
     display: block;
     width: 40px;
-    height: auto;
+    height: 40px;
   }
 
   .menu{
@@ -71,7 +83,7 @@ header{
     top: 0;
     left: 0;
     width: 100vw;
-    height: 200px;
+    height: 250px;
     background-color: #fff;
     box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.2);
 
@@ -82,8 +94,13 @@ header{
       font-size: 30px;
     }
 
+    p{
+      margin: 15px;
+      font-size: 20px;
+    }
+
     a{
-      display: inline-block;
+      display: block;
       margin: 15px;
       font-size: 18px;
       font-weight: bold;

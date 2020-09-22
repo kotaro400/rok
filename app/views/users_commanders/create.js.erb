@@ -1,0 +1,5 @@
+document.getElementById("commander").outerHTML = '<%= j(render "users_commander") %>'
+document.body.insertAdjacentHTML('afterbegin', '<p class="notice">招集しました</p>');
+setTimeout(function() {
+  document.querySelectorAll(".notice").forEach(el => el.remove())
+}, 3000)

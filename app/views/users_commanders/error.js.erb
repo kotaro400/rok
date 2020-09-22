@@ -1,0 +1,4 @@
+document.body.insertAdjacentHTML('afterbegin', '<p class="alert">無効な変更です</p>');
+setTimeout(function() {
+  document.querySelectorAll(".alert").forEach(el => el.remove())
+}, 3000)

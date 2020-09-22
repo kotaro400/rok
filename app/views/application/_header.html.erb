@@ -2,9 +2,13 @@
   <h1>Rise of Kingdoms</h1>
   <% if current_user %>
     <%= image_tag "battle", id: "open-menu" %>
-  <% end %>
-  <div class="menu">
-    <span id="close-menu">✖︎</span>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-   </div>
+    <div class="menu">
+      <span id="close-menu">✖︎</span>
+      <p><%= current_user.name %>さん</p>
+      <%= link_to "指揮官一覧", commanders_path %>
+      <%= link_to "編成を追加", new_team_path %>
+      <%= link_to "マイ編成", teams_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+     </div>
+   <% end %>
 </header>

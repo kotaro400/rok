@@ -2,16 +2,43 @@
 
 <div class="commanders">
   <h2>指揮官一覧</h2>
-  <% @commanders.each do |commander| %>
-    <div class="commander">
-      <div>
-        <% if commander.rarity == "レジェンド" %>
-          <%= image_tag "commander", class: "legend-icon" %>
-        <% else %>
-          <%= image_tag "commander", class: "epic-icon" %>
-        <% end %>
+  <% @owned_commanders.each do |commander| %>
+    <%= link_to commander_path(commander) do %>
+      <div class="commander">
+        <div>
+          <% if commander.rarity == "レジェンド" %>
+            <%= image_tag "commander_#{commander.id}_icon", class: "legend-icon" %>
+          <% else %>
+            <%= image_tag "commander_#{commander.id}_icon", class: "epic-icon" %>
+          <% end %>
+        </div>
+        <div class="commander-info">
+          <p><%= commander.name %></p>
+          <div class="skills">
+            <span><%= commander.users_commanders.first.skill1 %></span>
+            <span><%= commander.users_commanders.first.skill2 %></span>
+            <span><%= commander.users_commanders.first.skill3 %></span>
+            <span><%= commander.users_commanders.first.skill4 %></span>
+          </div>
+        </div>
       </div>
-      <p><%= commander.name %></p>
-    </div>
+    <% end %>
+  <% end %>
+  <% @not_owned_commanders.each do |commander| %>
+    <%= link_to commander_path(commander) do %>
+      <div class="commander">
+        <div>
+          <% if commander.rarity == "レジェンド" %>
+            <%= image_tag "commander_#{commander.id}_icon", class: "legend-icon not_owned_icon" %>
+          <% else %>
+            <%= image_tag "commander_#{commander.id}_icon", class: "epic-icon not_owned_icon" %>
+          <% end %>
+        </div>
+        <div class="commander-info">
+          <p><%= commander.name %></p>
+          <p class="not_owned">未招集</p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>

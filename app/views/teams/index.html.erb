@@ -1,0 +1,25 @@
+<%= render "application/header" %>
+
+<div class="commanders teams">
+  <h2>マイ編成</h2>
+  <% @teams.each do |team| %>
+    <%= link_to team do %>
+      <div class="commander team">
+        <div>
+          <% if team.units.first&.main_commander&.rarity == "レジェンド" %>
+            <%= image_tag "commander_#{team.units.first&.main_commander.id}_icon", class: "legend-icon" %>
+          <% elsif team.units.first&.main_commander&.rarity == "エピック" %>
+            <%= image_tag "commander_#{team.units.first&.main_commander.id}_icon", class: "epic-icon" %>
+          <% else %>
+            <%= image_tag "commander_1_icon" %>
+          <% end %>
+        </div>
+        <div class="commander-info team-info">
+          <p class="team-title"><%= team.title %></p>
+          <p class="team-details"><%= team.details&.truncate(30) %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= link_to "➕", new_team_path, class: "new-team-link" %>
+</div>

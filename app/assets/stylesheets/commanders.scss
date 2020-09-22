@@ -22,7 +22,6 @@
       height: 50px;
       object-fit: cover;
       border-radius: 5px;
-      border: 2px solid #ff9123;
     }
 
     .legend-icon{
@@ -33,9 +32,154 @@
       border: 3px solid #8e1eff;
     }
 
-    p{
-      margin-left: 20px;
-      font-size: 20px;
+    .not_owned_icon{
+      opacity: 0.5;
     }
+
+    .commander-info{
+      width: 100%;
+
+      .not_owned{
+        text-align: right;
+        font-size: 15px;
+        color: #ff4747;
+      }
+
+      p{
+        margin-left: 20px;
+        font-size: 20px;
+      }
+
+      .skills{
+        text-align: right;
+        span{
+          font-size: 14px;
+          font-weight: bold;
+          padding: 2px 5px;
+          border: 2px solid #e0b020;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+.commander-show{
+  h2{
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .commander-img{
+    text-align: center;
+    position: relative;
+    z-index: -100;
+
+    img{
+      width: 50%;
+      height: auto;
+    }
+
+    .commander-show-skill{
+      position: absolute;
+      font-size: 23px;
+      font-weight: bold;
+      border-radius: 5px;
+      border: 2px solid #e0b020;
+      padding: 5px 10px;
+      z-index: -10;
+    }
+
+    .skill1{
+      top: 0;
+      left: 20px;
+    }
+
+    .skill2{
+      top: 100px;
+      left: 20px;
+    }
+
+    .skill3{
+      top: 0;
+      right: 20px;
+    }
+
+    .skill4{
+      top: 100px;
+      right: 20px;
+    }
+  }
+
+  .skills-edit{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+
+    .skill-edit{
+      width: 40%;
+      margin-bottom: 20px;
+
+      a{
+        display: block;
+        width: 70%;
+        margin: 10px auto;
+        font-size: 17px;
+        font-weight: bold;
+        color: #fff;
+        padding: 10px;
+        background-color: #2893ff;
+        border-radius: 25px;
+        text-align: center;
+      }
+
+      .down{
+        background-color: #707070;
+      }
+
+      p{
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .full-skills{
+    a{
+      display: block;
+      width: 30%;
+      margin: 10px auto;
+      font-size: 17px;
+      font-weight: bold;
+      color: #fff;
+      padding: 10px;
+      background-color: #e0b020;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    p{
+      text-align: center;
+      font-size: 18px;
+      margin: 20px 0;
+
+      span{
+        color: #e0b020;
+        font-size: 22px;
+      }
+    }
+  }
+
+  .new-commander{
+    display: block;
+    width: 50%;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #2893ff;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px auto;
   }
 }

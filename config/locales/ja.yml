@@ -3,8 +3,13 @@ ja:
     models:
       user: ユーザー
       commander: 指揮官
+      unit: "部隊"
+      team: "編成"
     attributes:
       user:
         name: ユーザーネーム
         password: パスワード
         password_confirmation: 確認用パスワード
+      team:
+        title: 編成名
+        details: 説明

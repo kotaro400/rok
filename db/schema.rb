@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_035850) do
+ActiveRecord::Schema.define(version: 2020_09_21_160403) do
 
   create_table "commanders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "rarity", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "details"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "unit1_id"
+    t.integer "unit2_id"
+    t.integer "unit3_id"
+    t.integer "unit4_id"
+    t.integer "unit5_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
+  end
+
+  create_table "units", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "main_commander_id", null: false
+    t.integer "sub_commander_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,4 +52,20 @@ ActiveRecord::Schema.define(version: 2020_09_16_035850) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_commanders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "commander_id"
+    t.integer "skill1", default: 1
+    t.integer "skill2", default: 1
+    t.integer "skill3", default: 1
+    t.integer "skill4", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commander_id"], name: "index_users_commanders_on_commander_id"
+    t.index ["user_id"], name: "index_users_commanders_on_user_id"
+  end
+
+  add_foreign_key "teams", "users"
+  add_foreign_key "users_commanders", "commanders"
+  add_foreign_key "users_commanders", "users"
 end

@@ -1,0 +1,11 @@
+skill1 = document.getElementById("skill1")
+skill2 = document.getElementById("skill2")
+skill3 = document.getElementById("skill3")
+skill4 = document.getElementById("skill4")
+count = document.getElementById("sculpture-count")
+
+skill1.textContent = <%= @users_commander.skill1 %>
+skill2.textContent = <%= @users_commander.skill2 %>
+skill3.textContent = <%= @users_commander.skill3 %>
+skill4.textContent = <%= @users_commander.skill4 %>
+count.textContent = <%= @users_commander.sculpture_count %>

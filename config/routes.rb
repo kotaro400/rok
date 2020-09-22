@@ -6,7 +6,11 @@ Rails.application.routes.draw do
         }
 
   resources :commanders, only: [:index, :show]
-  
+
+  resources :users_commanders, only: [:create, :update, :destroy]
+
+  resources :teams
+
   get 'home/top'
 
   root "home#top"

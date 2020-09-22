@@ -1,0 +1,48 @@
+<%= form_with model: @team, local: true, class: "team-form" do |f| %>
+  <h3>編成を追加</h3>
+  <%= render "devise/shared/error_messages", resource: @team %>
+
+  <div class="team-field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="team-field">
+    <%= f.label "部隊1" %>
+    <strong>主将</strong>: <%= f.select :unit1_main, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %><br>
+    <strong>副将</strong>: <%= f.select :unit1_sub, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %>
+  </div>
+
+  <div class="team-field">
+    <%= f.label "部隊2" %>
+    <strong>主将</strong>: <%= f.select :unit2_main, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %><br>
+    <strong>副将</strong>: <%= f.select :unit2_sub, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %>
+  </div>
+
+  <div class="team-field">
+    <%= f.label "部隊3" %>
+    <strong>主将</strong>: <%= f.select :unit3_main, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %><br>
+    <strong>副将</strong>: <%= f.select :unit3_sub, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %>
+  </div>
+
+  <div class="team-field">
+    <%= f.label "部隊4" %>
+    <strong>主将</strong>: <%= f.select :unit4_main, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %><br>
+    <strong>副将</strong>: <%= f.select :unit4_sub, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %>
+  </div>
+
+  <div class="team-field">
+    <%= f.label "部隊5" %>
+    <strong>主将</strong>: <%= f.select :unit5_main, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %><br>
+    <strong>副将</strong>: <%= f.select :unit5_sub, @commanders.map{|commander| [commander.name, commander.id]}, include_blank: true %>
+  </div>
+
+  <div class="team-field">
+    <%= f.label :details %>
+    <%= f.text_area :details, rows: 8, placeholder: "この編成の使用場面・強みなど" %>
+  </div>
+
+  <div class="team-action">
+    <%= f.submit "保存する" %>
+  </div>
+<% end %>
