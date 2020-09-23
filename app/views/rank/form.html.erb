@@ -1,0 +1,39 @@
+<%= render "application/header" %>
+
+<%= form_with url: rank_path, class: "rank-form" do |f| %>
+  <h2>指揮官のランクアップコスト</h2>
+  <fieldset>
+    <%= f.radio_button :rarity, "legend", checked: true, class: "legend-radio" %>
+    <label class="radio-label legend" for="rarity_legend">
+      レジェンド
+    </label>
+
+    <%= f.radio_button :rarity, "epic", class: "epic-radio" %>
+    <label class="radio-label epic" for="rarity_epic">
+      エピック
+    </label>
+  </fieldset>
+
+  <div class="select-level">
+    <%= f.label "指揮官レベル" %>
+    <%= f.select :level, [10, 20, 30, 40, 50] %>
+  </div>
+
+  <div class="select-level">
+    <%= f.label "星経験値" %>
+    <%= f.number_field :exp, step: "0.01", value: "0" %> %
+  </div>
+
+  <p class="annotation">
+   ※星の勲章のみを6つずつ使用した場合のコストを計算します
+  </p>
+
+ <div class="rank-action">
+   <%= f.submit "計算する" %>
+ </div>
+<% end %>
+
+<p id="average-star">
+</p>
+<p id="worst-star">
+</p>

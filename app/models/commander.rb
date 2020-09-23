@@ -15,4 +15,36 @@ class Commander < ApplicationRecord
       450
     end
   end
+
+  def self.star_count(level, exp, rarity, type)
+    star_exp = type == "average"? 160: 100
+    case rarity
+    when "legend"
+      case level
+      when 10
+        (500 * (1 - exp / 100) / star_exp).ceil
+      when 20
+        (1000 * (1 - exp / 100) / star_exp).ceil
+      when 30
+        (6500 * (1 - exp / 100) / star_exp).ceil
+      when 40
+        (25000 * (1 - exp / 100) / star_exp).ceil
+      when 50
+        (65000 * (1 - exp / 100) / star_exp).ceil
+      end
+    when "epic"
+      case level
+      when 10
+        (500 * (1 - exp / 100) / star_exp).ceil
+      when 20
+        (1000 * (1 - exp / 100) / star_exp).ceil
+      when 30
+        (6500 * (1 - exp / 100) / star_exp).ceil
+      when 40
+        (16000 * (1 - exp / 100) / star_exp).ceil
+      when 50
+        (47500 * (1 - exp / 100) / star_exp).ceil
+      end
+    end
+  end
 end

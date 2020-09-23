@@ -13,5 +13,9 @@ Rails.application.routes.draw do
 
   get 'home/top'
 
+  get "rank", to: "rank#form"
+
+  post "rank", to: "rank#calc"
+
   root "home#top"
 end
