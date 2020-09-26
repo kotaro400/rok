@@ -7,6 +7,11 @@ class UsersCommander < ApplicationRecord
   validates :skill3, inclusion: {in: [1, 2, 3, 4, 5]}
   validates :skill4, inclusion: {in: [1, 2, 3, 4, 5]}
 
+  def power
+    rarity = commander.rarity == "レジェンド" ? 0.5: 0.4
+    skill1 + skill2 + skill3 + skill4 + rarity
+  end
+
   def sculpture_count
     legend_sculptures = [10, 10, 15, 15, 30, 30, 40, 40, 45, 45, 50, 50, 75, 75, 80, 80]
     epic_sculptures = [10, 10, 10, 20, 20, 20, 20, 30, 30, 30, 30, 40, 40, 40, 40, 50]

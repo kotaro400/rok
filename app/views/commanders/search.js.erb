@@ -1,0 +1,5 @@
+owned = document.getElementById("owned-commanders-wrapper")
+notOwned = document.getElementById("not-owned-commanders-wrapper")
+
+owned.innerHTML = '<%= j(render "owned_commanders", owned_commanders: @owned_commanders) %>'
+notOwned.innerHTML = '<%= j(render "not_owned_commanders", not_owned_commanders: @not_owned_commanders) %>'

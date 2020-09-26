@@ -5,6 +5,29 @@
   width: 85%;
   margin: 0 auto;
 
+  form{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+
+    select{
+      width: 60%;
+      font-size: 15px;
+      border: none;
+      box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    input{
+      font-size: 15px;
+      color: #fff;
+      background-color: #2893ff;
+      border-radius: 5px;
+      padding: 3px 10px;
+    }
+  }
+
   h2{
     margin: 20px;
     text-align: center;
@@ -22,6 +45,7 @@
       height: 50px;
       object-fit: cover;
       border-radius: 5px;
+      z-index: -10;
     }
 
     .legend-icon{

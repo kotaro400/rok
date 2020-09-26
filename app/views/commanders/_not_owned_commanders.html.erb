@@ -1,0 +1,17 @@
+<% not_owned_commanders.each do |commander| %>
+  <%= link_to commander_path(commander) do %>
+    <div class="commander">
+      <div>
+        <% if commander.rarity == "レジェンド" %>
+          <%= image_tag "commander_#{commander.id}_icon", class: "legend-icon not_owned_icon" %>
+        <% else %>
+          <%= image_tag "commander_#{commander.id}_icon", class: "epic-icon not_owned_icon" %>
+        <% end %>
+      </div>
+      <div class="commander-info">
+        <p><%= commander.name %></p>
+        <p class="not_owned">未招集</p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

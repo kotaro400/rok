@@ -1,0 +1,22 @@
+<% owned_commanders.each do |commander| %>
+  <%= link_to commander_path(commander) do %>
+    <div class="commander">
+      <div>
+        <% if commander.rarity == "レジェンド" %>
+          <%= image_tag "commander_#{commander.id}_icon", class: "legend-icon" %>
+        <% else %>
+          <%= image_tag "commander_#{commander.id}_icon", class: "epic-icon" %>
+        <% end %>
+      </div>
+      <div class="commander-info">
+        <p><%= commander.name %></p>
+        <div class="skills">
+          <span><%= commander.users_commanders.first.skill1 %></span>
+          <span><%= commander.users_commanders.first.skill2 %></span>
+          <span><%= commander.users_commanders.first.skill3 %></span>
+          <span><%= commander.users_commanders.first.skill4 %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

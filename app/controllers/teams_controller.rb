@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
       unit5_id: unit_ids[4],
     )
     if @team.save
-      redirect_to commanders_path, notice: "編成が作成されました"
+      redirect_to teams_path, notice: "編成が作成されました"
     else
       @commanders = Commander.all
       render "new"

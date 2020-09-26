@@ -1,5 +1,12 @@
 <%= render "application/header" %>
 
+<% unless current_user %>
+  <div class="intro">
+    <h2>Prosperity of Kingdoms</h2>
+    <p>ライキンプレイヤーの王国繁栄のために、少しだけ役に立つ機能を提供します</p>
+  </div>
+<% end %>
+
 <div class="top-flex-wrapper">
   <div class="start-link">
     <%= link_to rank_path do %>
@@ -22,3 +29,9 @@
     <% end %>
   </div>
 </div>
+
+<% unless current_user %>
+  <p class="annotation">
+    ※指揮官管理、編成管理については指揮官情報の保存のため、簡単なユーザー登録を必要とします
+  </p>
+<% end %>

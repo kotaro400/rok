@@ -5,7 +5,11 @@ Rails.application.routes.draw do
           registrations: 'users/registrations'
         }
 
-  resources :commanders, only: [:index, :show]
+  resources :commanders, only: [:index, :show] do
+    collection do
+      get :search
+    end
+  end
 
   resources :users_commanders, only: [:create, :update, :destroy]
 

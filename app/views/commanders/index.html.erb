@@ -2,43 +2,16 @@
 
 <div class="commanders">
   <h2>指揮官一覧</h2>
-  <% @owned_commanders.each do |commander| %>
-    <%= link_to commander_path(commander) do %>
-      <div class="commander">
-        <div>
-          <% if commander.rarity == "レジェンド" %>
-            <%= image_tag "commander_#{commander.id}_icon", class: "legend-icon" %>
-          <% else %>
-            <%= image_tag "commander_#{commander.id}_icon", class: "epic-icon" %>
-          <% end %>
-        </div>
-        <div class="commander-info">
-          <p><%= commander.name %></p>
-          <div class="skills">
-            <span><%= commander.users_commanders.first.skill1 %></span>
-            <span><%= commander.users_commanders.first.skill2 %></span>
-            <span><%= commander.users_commanders.first.skill3 %></span>
-            <span><%= commander.users_commanders.first.skill4 %></span>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <%= form_with url: search_commanders_path, method: :get do |f| %>
+    <%= f.select :type, {"スキルレベル順": "skill", "未招集": "not_owned", "レジェンド": "レジェンド", "エピック": "エピック"} %>
+    <%= f.submit "表示" %>
   <% end %>
-  <% @not_owned_commanders.each do |commander| %>
-    <%= link_to commander_path(commander) do %>
-      <div class="commander">
-        <div>
-          <% if commander.rarity == "レジェンド" %>
-            <%= image_tag "commander_#{commander.id}_icon", class: "legend-icon not_owned_icon" %>
-          <% else %>
-            <%= image_tag "commander_#{commander.id}_icon", class: "epic-icon not_owned_icon" %>
-          <% end %>
-        </div>
-        <div class="commander-info">
-          <p><%= commander.name %></p>
-          <p class="not_owned">未招集</p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+
+  <div id="owned-commanders-wrapper">
+    <%= render "owned_commanders", owned_commanders: @owned_commanders %>
+  </div>
+
+  <div id="not-owned-commanders-wrapper">
+    <%= render "not_owned_commanders", not_owned_commanders: @not_owned_commanders %>
+  </div>
 </div>

@@ -3,6 +3,12 @@ class Commander < ApplicationRecord
 
   scope :owned, -> (user_id) { includes(:users_commanders).where(users_commanders: {user_id: user_id}) }
 
+  def self.sort_by_skill_level(user_id)
+    Commander.owned(user_id).sort_by do |commander|
+      commander.users_commanders.first.power
+    end.reverse
+  end
+
   def users_commander(user_id)
     users_commanders.find_by(user_id: user_id)
   end
