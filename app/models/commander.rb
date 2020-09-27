@@ -1,13 +1,13 @@
 class Commander < ApplicationRecord
   has_many :users_commanders, dependent: :destroy
 
-  scope :owned, -> (user_id) { includes(:users_commanders).where(users_commanders: {user_id: user_id}) }
+  RARITY_VALUES = ["レジェンド", "エピック"]
 
-  def self.sort_by_skill_level(user_id)
-    Commander.owned(user_id).sort_by do |commander|
-      commander.users_commanders.first.power
-    end.reverse
-  end
+  validates :name, presence: true
+  validates :name, uniqueness: { case_sensitive: true }
+  validates :rarity, presence: true
+  validates :rarity, inclusion: {in: RARITY_VALUES}
+
 
   def users_commander(user_id)
     users_commanders.find_by(user_id: user_id)

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :users_commanders, dependent: :destroy
   has_many :teams, dependent: :destroy
 
-  validates :name, uniqueness: true
+  validates :name, uniqueness: { case_sensitive: true }
   validates :name, presence: true
 
   def self.find_first_by_auth_conditions(warden_conditions)
@@ -17,6 +17,10 @@ class User < ApplicationRecord
     else
       where(conditions).first
     end
+  end
+
+  def commanders_sorted_by_skill
+    users_commanders.sort_by{|commander| commander.power }.reverse
   end
 
   def email_required?

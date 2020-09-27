@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :raise_route_error, only: [:edit, :update, :destroy]
 
   #GET /resource/sign_up
   def new
@@ -34,9 +35,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #in to be expired now. This is useful if the user wants to
   #cancel oauth signing in/up in the middle of the process,
   #removing all OAuth session data.
-  def cancel
-    super
-  end
+  # def cancel
+  #   super
+  # end
 
   protected
 
@@ -59,4 +60,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_inactive_sign_up_path_for(resource)
     super(resource)
   end
+
+  private
+  def raise_route_error
+    raise ActionController::RoutingError, 'NOT FOUND'
+  end
+
 end

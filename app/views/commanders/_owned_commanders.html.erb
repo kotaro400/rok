@@ -1,5 +1,6 @@
-<% owned_commanders.each do |commander| %>
-  <%= link_to commander_path(commander) do %>
+<% owned_commanders.each do |users_commander| %>
+  <% commander = users_commander.commander %>
+  <%= link_to commander_path(commander.id) do %>
     <div class="commander">
       <div>
         <% if commander.rarity == "レジェンド" %>
@@ -11,10 +12,10 @@
       <div class="commander-info">
         <p><%= commander.name %></p>
         <div class="skills">
-          <span><%= commander.users_commanders.first.skill1 %></span>
-          <span><%= commander.users_commanders.first.skill2 %></span>
-          <span><%= commander.users_commanders.first.skill3 %></span>
-          <span><%= commander.users_commanders.first.skill4 %></span>
+          <span><%= users_commander.skill1 %></span>
+          <span><%= users_commander.skill2 %></span>
+          <span><%= users_commander.skill3 %></span>
+          <span><%= users_commander.skill4 %></span>
         </div>
       </div>
     </div>

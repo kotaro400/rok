@@ -25,28 +25,18 @@ class UsersCommander < ApplicationRecord
   end
 
   def update_users_commander(skill, type)
+    val = type == "up" ? 1: - 1
     case type
-    when "up"
+    when "up", "down"
       case skill
       when "1"
-        res = update(skill1: skill1 + 1)
+        update(skill1: skill1 + val)
       when "2"
-        res = update(skill2: skill2 + 1)
+        update(skill2: skill2 + val)
       when "3"
-        res = update(skill3: skill3 + 1)
+        update(skill3: skill3 + val)
       when "4"
-        res = update(skill4: skill4 + 1)
-      end
-    when "down"
-      case skill
-      when "1"
-        res = update(skill1: skill1 - 1)
-      when "2"
-        res = update(skill2: skill2 - 1)
-      when "3"
-        res = update(skill3: skill3 - 1)
-      when "4"
-        res = update(skill4: skill4 - 1)
+        update(skill4: skill4 + val)
       end
     when "full"
       res = update(

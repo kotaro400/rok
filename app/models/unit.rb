@@ -2,6 +2,7 @@ class Unit < ApplicationRecord
 
   validate :forbid_same_id
   validates :main_commander_id, presence: true
+  validates :main_commander_id, uniqueness: { scope: :sub_commander_id }
 
   def self.create_units(team_params)
     unit_ids = []
