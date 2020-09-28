@@ -114,3 +114,27 @@
     color: #e0b020;
   }
 }
+
+@media screen and (min-width:900px){
+  .rank-form{
+    .select-level{
+      text-align: center;
+
+      select, input{
+        padding: 8px 15px;
+        width: 100px;
+        font-size: 22px;
+      }
+    }
+
+    .rank-action{
+      input{
+        width: 250px;
+      }
+    }
+  }
+
+  .annotation{
+    text-align: center;
+  }
+}

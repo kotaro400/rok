@@ -1,4 +1,6 @@
 class Team < ApplicationRecord
+  include Hashid::Rails
+  
   belongs_to :user
 
   validates :title, presence: true

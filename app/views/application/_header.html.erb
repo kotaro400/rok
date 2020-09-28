@@ -5,10 +5,11 @@
     <div class="menu">
       <span id="close-menu">✖︎</span>
       <p><%= current_user.name %>さん</p>
+      <%= link_to "トップ", root_path %>
       <%= link_to "指揮官一覧", commanders_path %>
       <%= link_to "編成を追加", new_team_path %>
       <%= link_to "マイ編成", teams_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-     </div>
+    </div>
    <% end %>
 </header>

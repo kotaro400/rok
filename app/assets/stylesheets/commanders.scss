@@ -207,3 +207,64 @@
     margin: 30px auto;
   }
 }
+
+@media screen and (min-width:900px){
+  .commanders{
+    form{
+      flex-flow: column;
+
+      select{
+        width: 300px;
+        margin: 10px auto;
+      }
+
+      input{
+        width: 100px;
+        margin: 10px auto;
+      }
+    }
+
+    .commander{
+      margin: 25px auto;
+      width: 400px;
+    }
+  }
+
+  .commander-show{
+    .commander-img{
+      img{
+        width: 300px;
+        height: auto;
+      }
+
+      .commander-show-skill{
+        font-size: 40px;
+        padding: 10px 20px;
+      }
+
+      .skill1, .skill2{
+        left: 10%;
+      }
+
+      .skill2, .skill4{
+        top: 150px;
+      }
+
+      .skill3, .skill4{
+        right: 10%;
+      }
+    }
+
+    .skills-edit{
+      .skill-edit{
+        width: 20%;
+      }
+    }
+
+    .full-skills{
+      a{
+        width: 150px;
+      }
+    }
+  }
+}

@@ -1,3 +1,5 @@
+<% content_for(:title){"編成を追加"} %>
+
 <%= form_with model: @team, local: true, class: "team-form" do |f| %>
   <h3>編成を追加</h3>
   <%= render "devise/shared/error_messages", resource: @team %>

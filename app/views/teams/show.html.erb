@@ -1,3 +1,5 @@
+<% content_for(:title){"編成: #{@team.title}"} %>
+
 <%= render "application/header" %>
 
 <div class="team-show">
@@ -33,19 +35,21 @@
       </div>
     <% end %>
   </div>
-  <% @team.commanders.each do |commander| %>
-    <p class="teams-sculpture-count">
-      <strong><%= commander.name %></strong>の覚醒まで<br>あと彫像
-      <span>
-        <% if commander.users_commander(current_user.id) %>
-          <%= commander.users_commander(current_user.id).sculpture_count %>
-        <% else %>
-          <%= commander.max_sculpture_count %>
-        <% end %>
-      </span>
-      個
-    </p>
-  <% end %>
+  <div class="sculpture_counts">
+    <% @team.commanders.each do |commander| %>
+      <p class="teams-sculpture-count">
+        <strong><%= commander.name %></strong>の覚醒まで<br>あと彫像
+        <span>
+          <% if commander.users_commander(current_user.id) %>
+            <%= commander.users_commander(current_user.id).sculpture_count %>
+          <% else %>
+            <%= commander.max_sculpture_count %>
+          <% end %>
+        </span>
+        個
+      </p>
+    <% end %>
+  </div>
   <% if @team.user == current_user %>
     <div class="delete-team">
       <%= link_to "この編成を削除", team_path(@team), method: :delete, data: {confirm: "削除しますか？"} %>

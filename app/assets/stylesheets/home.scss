@@ -45,3 +45,17 @@
     }
   }
 }
+
+@media screen and (min-width:900px){
+  .intro{
+    p{
+      text-align: center;
+    }
+
+    margin-bottom: 50px;
+  }
+
+  .top-flex-wrapper{
+    flex-flow: row wrap;
+  }
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PoK</title>
+    <title><%= content_for?(:title) ? "#{yield(:title)} | PoK" : "PoK"%></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
@@ -20,6 +20,15 @@
     <% if alert.present? %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <%= yield %>
+    <% if current_user %>
+      <div class="pc-content">
+        <%= yield %>
+      </div>
+      <%= render "application/pc_menu"%>
+    <% else %>
+      <div class="content">
+        <%= yield %>
+      </div>
+    <% end %>
   </body>
 </html>

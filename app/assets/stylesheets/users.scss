@@ -47,3 +47,11 @@
   display: inline-block;
   margin-bottom: 20px;
 }
+
+@media screen and (min-width:900px){
+  .background{
+    .user-field{
+      width: 500px;
+    }
+  }
+}

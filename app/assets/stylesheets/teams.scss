@@ -162,3 +162,49 @@
     }
   }
 }
+
+@media screen and (min-width:900px){
+  .team-form{
+    text-align: center;
+
+    .team-field{
+      input, select{
+        width: 50%;
+        margin: 15px 0;
+        font-size: 20px;
+        padding: 10px;
+      }
+    }
+
+    .team-action{
+      input{
+        width: 200px;
+      }
+    }
+  }
+
+  .team-show{
+    .units{
+      flex-flow: row;
+
+      .unit{
+        justify-content: center;
+        h4{
+          display: none;
+        }
+      }
+    }
+
+    .sculpture_counts{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+
+      .teams-sculpture-count{
+        width: 40%;
+        text-align: center;
+        margin: 15px;
+      }
+    }
+  }
+}
