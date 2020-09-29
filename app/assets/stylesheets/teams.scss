@@ -137,6 +137,21 @@
     }
   }
 
+  #open-counts{
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #333;
+    text-align: center;
+  }
+
+  #pc-counts{
+    display: none;
+  }
+
+  #sculpture-counts{
+    display: none;
+  }
+
   .teams-sculpture-count{
     color: #333;
     margin: 10px auto;
@@ -150,7 +165,7 @@
 
   .delete-team{
     text-align: center;
-    margin: 20px auto;
+    margin: 50px auto 30px auto;
 
     a{
       display: inline-block;
@@ -195,10 +210,24 @@
       }
     }
 
-    .sculpture_counts{
+    #open-counts{
+      display: none;
+    }
+
+    #pc-counts{
+      display: block;
+      font-weight: bold;
+      color: #333;
+      border-bottom: 2px solid #333;
+      text-align: center;
+      width: 40%;
+      margin: 0 auto;
+    }
+
+    #sculpture-counts{
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-around;
+      justify-content: space-between;
 
       .teams-sculpture-count{
         width: 40%;

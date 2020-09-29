@@ -8,6 +8,7 @@ class UsersCommandersController < ApplicationController
 
   def update
     @users_commander = UsersCommander.find(params[:id])
+    @commander = @users_commander.commander
     if @users_commander.update_users_commander(params[:skill], params[:type])
       render "update"
     else

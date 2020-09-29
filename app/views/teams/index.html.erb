@@ -13,7 +13,7 @@
           <% elsif team.units.first&.main_commander&.rarity == "エピック" %>
             <%= image_tag "commander_#{team.units.first&.main_commander.id}_icon", class: "epic-icon" %>
           <% else %>
-            <%= image_tag "commander_1_icon" %>
+            <%= image_tag "commander" %>
           <% end %>
         </div>
         <div class="commander-info team-info">

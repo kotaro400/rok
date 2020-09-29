@@ -1,5 +1,5 @@
 <% not_owned_commanders.each do |commander| %>
-  <%= link_to commander_path(commander) do %>
+  <%= link_to commander_path(commander.name) do %>
     <div class="commander">
       <div>
         <% if commander.rarity == "レジェンド" %>

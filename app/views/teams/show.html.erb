@@ -11,44 +11,52 @@
       <div class="unit">
         <h4>部隊<%= i + 1 %></h4>
         <div class="unit-main">
-          <% case unit.main_commander.rarity %>
-          <% when "レジェンド" %>
-            <%= image_tag "commander_#{unit.main_commander.id}_icon", class: "legend-icon" %>
-          <% when "エピック" %>
-            <%= image_tag "commander_#{unit.main_commander.id}_icon", class: "epic-icon" %>
+          <%= link_to commander_path(unit.main_commander.name) do %>
+            <% case unit.main_commander.rarity %>
+            <% when "レジェンド" %>
+              <%= image_tag "commander_#{unit.main_commander.id}_icon", class: "legend-icon" %>
+            <% when "エピック" %>
+              <%= image_tag "commander_#{unit.main_commander.id}_icon", class: "epic-icon" %>
+            <% end %>
+            <p><%= unit.main_commander.name %></p>
           <% end %>
-          <p><%= unit.main_commander.name %></p>
         </div>
         <div class="unit-sub">
           <% if unit.sub_commander %>
-            <% case unit.sub_commander.rarity %>
-            <% when "レジェンド" %>
-              <%= image_tag "commander_#{unit.sub_commander.id}_icon", class: "legend-icon" %>
-            <% when "エピック" %>
-              <%= image_tag "commander_#{unit.sub_commander.id}_icon", class: "epic-icon" %>
+            <%= link_to commander_path(unit.sub_commander.name) do %>
+              <% case unit.sub_commander.rarity %>
+              <% when "レジェンド" %>
+                <%= image_tag "commander_#{unit.sub_commander.id}_icon", class: "legend-icon" %>
+              <% when "エピック" %>
+                <%= image_tag "commander_#{unit.sub_commander.id}_icon", class: "epic-icon" %>
+              <% end %>
+              <p><%= unit.sub_commander.name %></p>
             <% end %>
-            <p><%= unit.sub_commander.name %></p>
           <% else %>
-            <%= image_tag "commander_1_icon" %>
+            <%= image_tag "commander" %>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="sculpture_counts">
-    <% @team.commanders.each do |commander| %>
+  <p id="open-counts">全指揮官が覚醒するには</p>
+  <p id="pc-counts">全指揮官が覚醒するには</p>
+  <div id="sculpture-counts">
+    <% @team.not_owned_commanders(current_user.id).each do |commander| %>
       <p class="teams-sculpture-count">
-        <strong><%= commander.name %></strong>の覚醒まで<br>あと彫像
-        <span>
-          <% if commander.users_commander(current_user.id) %>
-            <%= commander.users_commander(current_user.id).sculpture_count %>
-          <% else %>
-            <%= commander.max_sculpture_count %>
-          <% end %>
-        </span>
-        個
+        <strong><%= commander.name %></strong>の彫像
+        <span>10</span>個
       </p>
     <% end %>
+    <p class="teams-sculpture-count">
+      <strong>レジェンド英雄像</strong>
+      <span><%= @team.team_sculpture_count(current_user.id, "レジェンド") %></span>個
+    </p>
+    <p class="teams-sculpture-count">
+      <strong>エピック英雄像</strong>
+      <span><%= @team.team_sculpture_count(current_user.id, "エピック") %></span>個
+    </p>
+    <p class="annotation">※招集以外に使用する彫像を全てレジェンド英雄像、エピック英雄像として計算しています</p>
   </div>
   <% if @team.user == current_user %>
     <div class="delete-team">
@@ -56,3 +64,5 @@
     </div>
   <% end %>
 </div>
+
+<%= javascript_pack_tag "teams/show" %>

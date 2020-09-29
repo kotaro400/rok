@@ -18,6 +18,37 @@
     <% end %>
   </div>
   <% if @users_commander %>
+    <div class="full-skills" id="sculpture-count">
+      <% unless @users_commander.sculpture_count == 0 %>
+        <p>覚醒まであと彫像が<span id="sculpture-5555"><%= @users_commander.sculpture_count %></span>個</p>
+      <% end %>
+      <% if @users_commander.skill4 == 1 \
+        && @commander.rarity == "レジェンド" \
+        && @users_commander.sculptures_for_5551 != 0  %>
+        <p>5-5-5-1まであと彫像が<span id="sculpture-5551"><%= @users_commander.sculptures_for_5551 %></span>個</p>
+      <% end %>
+      <% if @users_commander.skill4 == 1 \
+        && @users_commander.skill3 == 1 \
+        && @commander.rarity == "レジェンド" \
+        && @users_commander.sculptures_for_5511 != 0  %>
+        <p>5-5-1-1まであと彫像が<span id="sculpture-5511"><%= @users_commander.sculptures_for_5511 %></span>個</p>
+      <% end %>
+      <% if @users_commander.skill4 == 1 \
+        && @users_commander.skill3 == 1 \
+        && @users_commander.skill2 == 1 \
+        && @commander.rarity == "レジェンド" \
+        && @users_commander.sculptures_for_5111 != 0  %>
+        <p>5-1-1-1まであと彫像が<span id="sculpture-5111"><%= @users_commander.sculptures_for_5111 %></span>個</p>
+      <% end %>
+      <% unless @users_commander.sculpture_count == 0 %>
+        <%= link_to(
+          "覚醒",
+          users_commander_path(@users_commander, type: "full"),
+          method: :patch,
+          data: {remote: true},
+          ) %>
+      <% end %>
+    </div>
     <div class="skills-edit">
       <div class="skill-edit">
         <p>スキル1</p>
@@ -25,7 +56,8 @@
           "アップ",
           users_commander_path(@users_commander, skill: 1, type: "up"),
           method: :patch,
-          data: {remote: true}
+          data: {remote: true},
+          class: "up"
           ) %>
         <%= link_to(
           "ダウン",
@@ -41,7 +73,8 @@
           "アップ",
           users_commander_path(@users_commander, skill: 3, type: "up"),
           method: :patch,
-          data: {remote: true}
+          data: {remote: true},
+          class: "up"
           ) %>
         <%= link_to(
           "ダウン",
@@ -57,7 +90,8 @@
           "アップ",
           users_commander_path(@users_commander, skill: 2, type: "up"),
           method: :patch,
-          data: {remote: true}
+          data: {remote: true},
+          class: "up"
           ) %>
         <%= link_to(
           "ダウン",
@@ -73,7 +107,8 @@
           "アップ",
           users_commander_path(@users_commander, skill: 4, type: "up"),
           method: :patch,
-          data: {remote: true}
+          data: {remote: true},
+          class: "up"
           ) %>
         <%= link_to(
           "ダウン",
@@ -83,16 +118,6 @@
           class: "down"
           ) %>
       </div>
-    </div>
-    <div class="full-skills">
-      <%= link_to(
-        "覚醒",
-        users_commander_path(@users_commander, type: "full"),
-        method: :patch,
-        data: {remote: true},
-        ) %>
-
-      <p>覚醒まであと彫像が<span id="sculpture-count"><%= @users_commander.sculpture_count %></span>個</p>
     </div>
   <% end %>
   <% unless @users_commander %>
@@ -105,3 +130,5 @@
       ) %>
   <% end %>
 </div>
+
+<%= javascript_pack_tag "commanders/show" %>

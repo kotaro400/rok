@@ -6,8 +6,8 @@ class CommandersController < ApplicationController
   end
 
   def show
-    @commander = Commander.find(params[:id])
-    @users_commander = current_user.users_commanders.find_by(commander_id: params[:id])
+    @commander = Commander.find_by(name: params[:name])
+    @users_commander = current_user.users_commanders.find_by(commander_id: @commander.id)
   end
 
   def search

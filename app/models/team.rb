@@ -1,6 +1,6 @@
 class Team < ApplicationRecord
   include Hashid::Rails
-  
+
   belongs_to :user
 
   validates :title, presence: true
@@ -19,7 +19,27 @@ class Team < ApplicationRecord
   end
 
   def commanders
-    units.map{|unit| unit.main_commander} + units.map{|unit| unit.sub_commander}
+    commanders = units.map{|unit| unit.main_commander} + units.map{|unit| unit.sub_commander}
+    commanders.reject{|commander| commander.nil? }
+  end
+
+  def not_owned_commanders(user_id)
+    commanders.select{|commander| commander.users_commander(user_id).nil? }
+  end
+
+  def team_sculpture_count(user_id, rarity)
+    commanders.select{|commander| commander.rarity == rarity}.inject(0) do |count, commander|
+      if commander.users_commander(user_id)
+        count + commander.users_commander(user_id).sculpture_count
+      else
+        case rarity
+        when "レジェンド"
+          count + 690
+        when "エピック"
+          count + 440
+        end
+      end
+    end
   end
 
   private

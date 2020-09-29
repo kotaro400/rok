@@ -2,10 +2,48 @@ skill1 = document.getElementById("skill1")
 skill2 = document.getElementById("skill2")
 skill3 = document.getElementById("skill3")
 skill4 = document.getElementById("skill4")
-count = document.getElementById("sculpture-count")
+counts = document.getElementById("sculpture-count")
 
 skill1.textContent = <%= @users_commander.skill1 %>
 skill2.textContent = <%= @users_commander.skill2 %>
 skill3.textContent = <%= @users_commander.skill3 %>
 skill4.textContent = <%= @users_commander.skill4 %>
-count.textContent = <%= @users_commander.sculpture_count %>
+
+<% unless @users_commander.sculpture_count == 0 %>
+  counts.innerHTML = ""
+  counts.insertAdjacentHTML(
+    "beforeend",
+    '<p>覚醒まであと彫像が<span id="sculpture-5555"><%= @users_commander.sculpture_count %></span>個</p>'
+  )
+  <% if @users_commander.skill4 == 1 && @commander.rarity == "レジェンド" && @users_commander.sculptures_for_5551 != 0 %>
+    counts.insertAdjacentHTML(
+      "beforeend",
+      '<p>5-5-5-1まであと彫像が<span id="sculpture-5551"><%= @users_commander.sculptures_for_5551 %></span>個</p>'
+    )
+  <% end %>
+  <% if @users_commander.skill4 == 1 \
+    && @users_commander.skill3 == 1 \
+    && @commander.rarity == "レジェンド" \
+    && @users_commander.sculptures_for_5511 != 0 %>
+    counts.insertAdjacentHTML(
+      "beforeend",
+      '<p>5-5-1-1まであと彫像が<span id="sculpture-5511"><%= @users_commander.sculptures_for_5511 %></span>個</p>'
+    )
+  <% end %>
+  <% if @users_commander.skill4 == 1 \
+    && @users_commander.skill3 == 1 \
+    && @users_commander.skill2 == 1 \
+    && @commander.rarity == "レジェンド" \
+    && @users_commander.sculptures_for_5111 != 0 %>
+    counts.insertAdjacentHTML(
+      "beforeend",
+      '<p>5-1-1-1まであと彫像が<span id="sculpture-5111"><%= @users_commander.sculptures_for_5111 %></span>個</p>'
+    )
+  <% end %>
+  counts.insertAdjacentHTML(
+    "beforeend",
+    '<%= j(link_to("覚醒", users_commander_path(@users_commander, type: "full"), method: :patch, data: {remote: true})) %>'
+  )
+<% else %>
+  counts.innerHTML = ""
+<% end %>

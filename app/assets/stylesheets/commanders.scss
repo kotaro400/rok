@@ -112,6 +112,12 @@
       border: 2px solid #e0b020;
       padding: 5px 10px;
       z-index: -10;
+      animation: fadeIn 2s ease 0s 1 normal;
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0}
+      100% {opacity: 1}
     }
 
     .skill1{
@@ -139,12 +145,14 @@
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
+    animation: fadeIn 2s ease 0s 1 normal;
 
     .skill-edit{
       width: 40%;
       margin-bottom: 20px;
 
       a{
+        outline: none;
         display: block;
         width: 70%;
         margin: 10px auto;
@@ -155,6 +163,29 @@
         background-color: #2893ff;
         border-radius: 25px;
         text-align: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .ripple {
+        position: absolute;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: rippleEffect 1200ms 1;
+        opacity: 0;
+      }
+
+      @keyframes rippleEffect {
+        from {
+          transform: scale(1);
+          opacity: 0.75;
+        }
+        to {
+          transform: scale(50);
+          opacity: 0;
+        }
       }
 
       .down{
@@ -169,6 +200,8 @@
   }
 
   .full-skills{
+    animation: fadeIn 2s ease 0s 1 normal;
+
     a{
       display: block;
       width: 30%;

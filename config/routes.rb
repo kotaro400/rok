@@ -5,7 +5,7 @@ Rails.application.routes.draw do
           registrations: 'users/registrations'
         }
 
-  resources :commanders, only: [:index, :show] do
+  resources :commanders, param: :name, only: [:index, :show] do
     collection do
       get :search
     end

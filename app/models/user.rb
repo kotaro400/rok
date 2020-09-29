@@ -33,5 +33,5 @@ class User < ApplicationRecord
 
   def will_save_change_to_email?
     false
-  end
+  end  
 end

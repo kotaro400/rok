@@ -24,6 +24,18 @@ class UsersCommander < ApplicationRecord
     end
   end
 
+  def sculptures_for_5551
+    sculpture_count - 310 > 0 ? sculpture_count - 310: 0
+  end
+
+  def sculptures_for_5511
+    sculpture_count - 500 > 0 ? sculpture_count - 500: 0
+  end
+
+  def sculptures_for_5111
+    sculpture_count - 640 > 0 ? sculpture_count - 640: 0
+  end
+
   def update_users_commander(skill, type)
     val = type == "up" ? 1: - 1
     case type
