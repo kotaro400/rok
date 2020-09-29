@@ -20,25 +20,25 @@
   <% if @users_commander %>
     <div class="full-skills" id="sculpture-count">
       <% unless @users_commander.sculpture_count == 0 %>
-        <p>覚醒まであと彫像が<span id="sculpture-5555"><%= @users_commander.sculpture_count %></span>個</p>
+        <p><strong>覚醒</strong>まであと彫像が<span id="sculpture-5555"><%= @users_commander.sculpture_count %></span>個</p>
       <% end %>
       <% if @users_commander.skill4 == 1 \
         && @commander.rarity == "レジェンド" \
         && @users_commander.sculptures_for_5551 != 0  %>
-        <p>5-5-5-1まであと彫像が<span id="sculpture-5551"><%= @users_commander.sculptures_for_5551 %></span>個</p>
+        <p><strong>5-5-5-1</strong>まであと彫像が<span id="sculpture-5551"><%= @users_commander.sculptures_for_5551 %></span>個</p>
       <% end %>
       <% if @users_commander.skill4 == 1 \
         && @users_commander.skill3 == 1 \
         && @commander.rarity == "レジェンド" \
         && @users_commander.sculptures_for_5511 != 0  %>
-        <p>5-5-1-1まであと彫像が<span id="sculpture-5511"><%= @users_commander.sculptures_for_5511 %></span>個</p>
+        <p><strong>5-5-1-1</strong>まであと彫像が<span id="sculpture-5511"><%= @users_commander.sculptures_for_5511 %></span>個</p>
       <% end %>
       <% if @users_commander.skill4 == 1 \
         && @users_commander.skill3 == 1 \
         && @users_commander.skill2 == 1 \
         && @commander.rarity == "レジェンド" \
         && @users_commander.sculptures_for_5111 != 0  %>
-        <p>5-1-1-1まであと彫像が<span id="sculpture-5111"><%= @users_commander.sculptures_for_5111 %></span>個</p>
+        <p><strong>5-1-1-1</strong>まであと彫像が<span id="sculpture-5111"><%= @users_commander.sculptures_for_5111 %></span>個</p>
       <% end %>
       <% unless @users_commander.sculpture_count == 0 %>
         <%= link_to(
