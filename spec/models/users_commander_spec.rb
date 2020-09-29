@@ -74,6 +74,42 @@ RSpec.describe UsersCommander, type: :model do
     end
   end
 
+  describe "#sculptures_for_5551" do
+    it "レジェンドが5551になるまでの彫像数を返す" do
+      users_commander = create(:users_commander)
+      expect(users_commander.sculptures_for_5551).to eq 380
+    end
+
+    it "すでに5551を超えているならば0を返す" do
+      users_commander = create(:users_commander, :full)
+      expect(users_commander.sculptures_for_5551).to eq 0
+    end
+  end
+
+  describe "#sculptures_for_5511" do
+    it "レジェンドが5511になるまでの彫像数を返す" do
+      users_commander = create(:users_commander)
+      expect(users_commander.sculptures_for_5511).to eq 190
+    end
+
+    it "すでに5511を超えているならば0を返す" do
+      users_commander = create(:users_commander, :full)
+      expect(users_commander.sculptures_for_5511).to eq 0
+    end
+  end
+
+  describe "#sculptures_for_5111" do
+    it "レジェンドが5111になるまでの彫像数を返す" do
+      users_commander = create(:users_commander)
+      expect(users_commander.sculptures_for_5111).to eq 50
+    end
+
+    it "すでに5111を超えているならば0を返す" do
+      users_commander = create(:users_commander, :full)
+      expect(users_commander.sculptures_for_5111).to eq 0
+    end
+  end
+
   describe "#update_users_commander" do
     it "スキルレベルのアップができる" do
       users_commander = create(:users_commander)

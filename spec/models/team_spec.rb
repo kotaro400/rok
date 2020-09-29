@@ -45,7 +45,28 @@ RSpec.describe Team, type: :model do
   describe "#commanders" do
     it "編成に含まれる指揮官の配列を返す" do
       team = create(:team)
-      expect(team.commanders.size).to eq 10
+      expect(team.commanders.length).to eq 10
+    end
+  end
+
+  describe "#not_owned_commanders" do
+    it "編成内の未所持の指揮官を返す" do
+      team = create(:team)
+      users_commander = create(:users_commander, user: team.user, commander: team.commanders.first)
+      expect(team.not_owned_commanders(team.user.id).length).to eq 9
+    end
+  end
+
+  describe "#team_sculpture_count" do
+    it "すべてレジェンドで未所持の場合は6900を返す" do
+      team = create(:team)
+      expect(team.team_sculpture_count(team.user.id, "レジェンド")).to eq 6900
+    end
+
+    it "すべてレジェンドで覚醒指揮官1人所持、他未所持のときは6210を返す" do
+      team = create(:team)
+      users_commander = create(:users_commander, :full, user: team.user, commander: team.commanders.first)
+      expect(team.team_sculpture_count(team.user.id, "レジェンド")).to eq 6210
     end
   end
 end
