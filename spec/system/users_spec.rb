@@ -45,4 +45,20 @@ RSpec.describe 'Users', type: :system do
       expect(page).to have_selector ".alert"
     end
   end
+
+  describe "ログアウト" do
+    before do
+      @user = create(:user)
+    end
+
+    scenario "ログアウトできる" do
+      visit "/users/sign_in"
+      fill_in "ユーザーネーム", with: @user.name
+      fill_in "パスワード", with: @user.password
+      click_button "ログイン"
+      click_link "ログアウト"
+      expect(page).to have_content "ログアウトしました"
+      expect(current_path).to eq root_path
+    end
+  end
 end

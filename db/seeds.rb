@@ -48,10 +48,10 @@ epic_commander_names = [
   "カイラ",
 ]
 
-legend_commander_names.each do |name|
-  Commander.create(name: name, rarity: "レジェンド") unless Commander.find_by(name: name)
+legend_commander_names.each_with_index do |name, i|
+  Commander.create(id: i + 1, name: name, rarity: "レジェンド") unless Commander.find_by(name: name)
 end
 
-epic_commander_names.each do |name|
-  Commander.create(name: name, rarity: "エピック") unless Commander.find_by(name: name)
+epic_commander_names.each_with_index do |name, i|
+  Commander.create(id: legend_commander_names.length + i + 1, name: name, rarity: "エピック") unless Commander.find_by(name: name)
 end
