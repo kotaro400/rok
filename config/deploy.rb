@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, "rok"
-set :repo_url, "git@example.com:kotaro400/rok.git"
+set :repo_url, "git@github.com:kotaro400/rok.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -19,8 +19,6 @@ set :deploy_to, "/var/www/rails/rok"
 
 # Default value for :pty is false
 # set :pty, true
-
-set :linked_files, fetch(:linked_files, []).push('config/master.key')
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
