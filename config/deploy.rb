@@ -25,13 +25,14 @@ set :deploy_to, "/var/www/rails/rok"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+set :linked_files, fetch(:linked_files, []).push("config/master.key", ".env")
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets','public/packs','node_modules', 'vendor/bundle', 'public/system')
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.6.5'
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
-set :unicorn_config_path, -> { "#{current_path}/config/unicorn.conf.rb" }
+set :unicorn_config_path, -> { "#{shared_path}/config/unicorn.conf.rb" }
 
 set :log_level, :debug
 
