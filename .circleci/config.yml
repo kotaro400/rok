@@ -19,7 +19,7 @@ executors:
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: 'RoK_test'
+          MYSQL_DATABASE: `RoK_test`
 
 commands:
   setup:
