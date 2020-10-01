@@ -16,9 +16,8 @@ executors:
           DB_PORT: 3306
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: RoK_test
 
 commands:
   setup:
@@ -78,7 +77,7 @@ jobs:
 
       - run:
           name: Database migrate
-          command: bundle exec rails db:migrate
+          command: bundle exec rails db:schema:load
 
       - run:
           name: Database seed

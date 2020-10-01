@@ -27,7 +27,7 @@ development:
 test:
   <<: *default
   database: RoK_test
-  password: ""
+  password: 
   host: <%= ENV["DB_HOST"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
