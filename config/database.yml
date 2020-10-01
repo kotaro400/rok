@@ -27,7 +27,10 @@ development:
 test:
   <<: *default
   database: RoK_test
+  port: <%= ENV["DB_PORT"] %>
   password: ''
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
   host: <%= ENV["DB_HOST"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
