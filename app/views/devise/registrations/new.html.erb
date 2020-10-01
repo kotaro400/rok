@@ -19,7 +19,7 @@
 
       <div class="field">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度入力してください" %>
       </div>
 
       <%= link_to "ログインはこちら", new_user_session_path, class: "bottom-link" %>

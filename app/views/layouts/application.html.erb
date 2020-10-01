@@ -9,15 +9,15 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
-    <%= favicon_link_tag "/logo.png" %>
-    <link rel="apple-touch-icon" href="/logo2.png" />
+    <%= favicon_link_tag "/logo3.png" %>
+    <link rel="apple-touch-icon" href="/logo3.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:title" content="<%= full_title(yield(:title)) %>" />
     <meta property="og:url" content="<%= request.url %>" />
     <meta property="og:description"
       content="<%= content_for?(:description) ? yield(:description) : 'Prosperity of Kingdoms' %>" />
     <meta property="og:image"
-      content="<%= content_for?(:image_url) ? yield(:image_url) : full_url('logo2.png') %>" />
+      content="<%= content_for?(:image_url) ? yield(:image_url) : full_url('logo3.png') %>" />
   </head>
 
   <body>
