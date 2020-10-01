@@ -56,7 +56,9 @@ RSpec.describe 'Users', type: :system do
       fill_in "ユーザーネーム", with: @user.name
       fill_in "パスワード", with: @user.password
       click_button "ログイン"
-      click_link "ログアウト"
+      page.accept_confirm do
+        click_link "ログアウト"
+      end
       expect(page).to have_content "ログアウトしました"
       expect(current_path).to eq root_path
     end
