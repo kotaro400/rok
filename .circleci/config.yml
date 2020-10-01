@@ -17,7 +17,7 @@ executors:
           MYSQL_USER: 'root'
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: RoK_test
+          MYSQL_DATABASE: rok_test
 
 commands:
   setup:
