@@ -9,14 +9,12 @@ executors:
           RAILS_ENV: test
           BUNDLER_VERSION: 2.1.4
           DB_HOST: 127.0.0.1
-          DB_USERNAME: 'root'
-          DB_PASSWORD: ''
+          DB_USERNAME: root
           DB_PORT: 3306
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_USER: 'root'
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_USER: root
+          MYSQL_ROOT_PASSWORD: password
 
 commands:
   setup:
@@ -65,12 +63,10 @@ jobs:
       - checkout
       - setup
       - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-
-      - run:
           name: Database create
-          command: bundle exec rails db:create
+          command: |
+            dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+            bundle exec rails db:create
 
       - run:
           name: Database migrate
