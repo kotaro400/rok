@@ -29,6 +29,8 @@ test:
   database: rok_test
   port: <%= ENV["DB_PORT"] %>
   encoding: utf8
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
   password: password
   username: <%= ENV["DB_USERNAME"] %>
   password: <%= ENV["DB_PASSWORD"] %>
