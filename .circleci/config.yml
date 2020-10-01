@@ -67,6 +67,7 @@ jobs:
       - run:
           name: Database create
           command: |
+            mv spec/ ..
             dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
             bin/rails db:create
 
@@ -81,6 +82,7 @@ jobs:
       - run:
           name: Rails Test
           command: |
+            mv ../spec/ .
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
 
