@@ -14,7 +14,7 @@ executors:
           DB_USERNAME: 'root'
           DB_PASSWORD: ''
           DB_PORT: 3306
-      - image: circleci/mysql:8.0.4
+      - image: circleci/mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
