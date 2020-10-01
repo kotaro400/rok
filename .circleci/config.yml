@@ -10,10 +10,10 @@ executors:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USERNAME: 'root'
-          MYSQL_PASSWORD: ''
-          MYSQL_PORT: 3306
+          DB_HOST: 127.0.0.1
+          DB_USERNAME: 'root'
+          DB_PASSWORD: ''
+          DB_PORT: 3306
       - image: circleci/mysql:8.0.4
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
