@@ -12,24 +12,14 @@
         <h4>部隊<%= i + 1 %></h4>
         <div class="unit-main">
           <%= link_to commander_path(unit.main_commander.name) do %>
-            <% case unit.main_commander.rarity %>
-            <% when "レジェンド" %>
-              <%= image_tag "commander_#{unit.main_commander.id}_icon", class: "legend-icon" %>
-            <% when "エピック" %>
-              <%= image_tag "commander_#{unit.main_commander.id}_icon", class: "epic-icon" %>
-            <% end %>
+            <%= commander_icon(unit.main_commander) %>
             <p><%= unit.main_commander.name %></p>
           <% end %>
         </div>
         <div class="unit-sub">
           <% if unit.sub_commander %>
             <%= link_to commander_path(unit.sub_commander.name) do %>
-              <% case unit.sub_commander.rarity %>
-              <% when "レジェンド" %>
-                <%= image_tag "commander_#{unit.sub_commander.id}_icon", class: "legend-icon" %>
-              <% when "エピック" %>
-                <%= image_tag "commander_#{unit.sub_commander.id}_icon", class: "epic-icon" %>
-              <% end %>
+              <%= commander_icon(unit.sub_commander) %>
               <p><%= unit.sub_commander.name %></p>
             <% end %>
           <% else %>

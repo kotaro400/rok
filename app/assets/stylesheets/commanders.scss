@@ -28,6 +28,12 @@
     }
   }
 
+  #not-owned-commanders-wrapper{
+    img{
+      opacity: 0.5;
+    }
+  }
+
   h2{
     margin: 20px;
     text-align: center;
@@ -54,10 +60,6 @@
 
     .epic-icon{
       border: 3px solid #8e1eff;
-    }
-
-    .not_owned_icon{
-      opacity: 0.5;
     }
 
     .commander-info{

@@ -8,13 +8,7 @@
     <%= link_to team do %>
       <div class="commander team">
         <div>
-          <% if team.units.first&.main_commander&.rarity == "レジェンド" %>
-            <%= image_tag "commander_#{team.units.first&.main_commander.id}_icon", class: "legend-icon" %>
-          <% elsif team.units.first&.main_commander&.rarity == "エピック" %>
-            <%= image_tag "commander_#{team.units.first&.main_commander.id}_icon", class: "epic-icon" %>
-          <% else %>
-            <%= image_tag "commander" %>
-          <% end %>
+          <%= commander_icon(team.units.first&.main_commander) %>
         </div>
         <div class="commander-info team-info">
           <p class="team-title"><%= team.title %></p>

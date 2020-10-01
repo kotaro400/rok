@@ -46,6 +46,7 @@
           users_commander_path(@users_commander, type: "full"),
           method: :patch,
           data: {remote: true},
+          id: "full-up"
           ) %>
       <% end %>
     </div>
@@ -57,14 +58,16 @@
           users_commander_path(@users_commander, skill: 1, type: "up"),
           method: :patch,
           data: {remote: true},
-          class: "up"
+          class: "up",
+          id: "skill1-up"
           ) %>
         <%= link_to(
           "ダウン",
           users_commander_path(@users_commander, skill: 1, type: "down"),
           method: :patch,
           data: {remote: true},
-          class: "down"
+          class: "down",
+          id: "skill1-down"
           ) %>
       </div>
       <div class="skill-edit">
@@ -74,14 +77,16 @@
           users_commander_path(@users_commander, skill: 3, type: "up"),
           method: :patch,
           data: {remote: true},
-          class: "up"
+          class: "up",
+          id: "skill3-up"
           ) %>
         <%= link_to(
           "ダウン",
           users_commander_path(@users_commander, skill: 3, type: "down"),
           method: :patch,
           data: {remote: true},
-          class: "down"
+          class: "down",
+          id: "skill3-down"
           ) %>
       </div>
       <div class="skill-edit">
@@ -91,14 +96,16 @@
           users_commander_path(@users_commander, skill: 2, type: "up"),
           method: :patch,
           data: {remote: true},
-          class: "up"
+          class: "up",
+          id: "skill2-up"
           ) %>
         <%= link_to(
           "ダウン",
           users_commander_path(@users_commander, skill: 2, type: "down"),
           method: :patch,
           data: {remote: true},
-          class: "down"
+          class: "down",
+          id: "skill2-down"
           ) %>
       </div>
       <div class="skill-edit">
@@ -108,14 +115,16 @@
           users_commander_path(@users_commander, skill: 4, type: "up"),
           method: :patch,
           data: {remote: true},
-          class: "up"
+          class: "up",
+          id: "skill4-up"
           ) %>
         <%= link_to(
           "ダウン",
           users_commander_path(@users_commander, skill: 4, type: "down"),
           method: :patch,
           data: {remote: true},
-          class: "down"
+          class: "down",
+          id: "skill4-down"
           ) %>
       </div>
     </div>
