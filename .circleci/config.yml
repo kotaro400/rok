@@ -6,6 +6,7 @@ executors:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
         environment:
+          RAILS_ENV: test
           BUNDLER_VERSION: 2.1.4
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -18,7 +19,7 @@ executors:
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: 'ci_test'
+          MYSQL_DATABASE: 'RoK_test'
 
 commands:
   setup:
@@ -63,8 +64,6 @@ commands:
 jobs:
   test:
     executor: default
-    environment:
-      RAILS_ENV: test
     steps:
       - checkout
       - setup
