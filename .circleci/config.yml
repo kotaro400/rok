@@ -71,10 +71,14 @@ jobs:
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-          
+
       - run:
           name: Database setup
           command: bundle exec rails db:schema:load
+
+      - run:
+          name: Database seed
+          command: bundle exec rails db:seed
 
       - run:
           name: Rails Test
