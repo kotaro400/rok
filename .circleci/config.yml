@@ -71,7 +71,7 @@ jobs:
 
       - run:
           name: Database create
-          command: bundle exec rails db:create
+          command: bundle exec rails db:drop db:create
 
       - run:
           name: Database migrate
