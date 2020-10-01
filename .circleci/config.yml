@@ -8,18 +8,16 @@ executors:
         environment:
           RAILS_ENV: test
           BUNDLER_VERSION: 2.1.4
-          BUNDLE_JOBS: 3
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: vendor/bundle
           DB_HOST: 127.0.0.1
           DB_USERNAME: 'root'
           DB_PASSWORD: ''
           DB_PORT: 3306
       - image: circleci/mysql:5.7
         environment:
+          MYSQL_USER: 'root'
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: `RoK_test`
+          MYSQL_DATABASE: RoK_test
 
 commands:
   setup:
