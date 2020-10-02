@@ -163,17 +163,36 @@
     }
   }
 
-  .delete-team{
-    text-align: center;
-    margin: 50px auto 30px auto;
+  .links_wrapper{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin: 80px auto 50px auto;
 
-    a{
-      display: inline-block;
-      padding: 10px;
-      background-color: #ff4747;
-      border-radius: 5px;
-      color: #fff;
-      font-weight: bold;
+    .edit-team{
+      text-align: center;
+
+      a{
+        display: inline-block;
+        padding: 10px;
+        background-color: #2893ff;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+
+    .delete-team{
+      text-align: center;
+
+      a{
+        display: inline-block;
+        padding: 10px;
+        background-color: #ff4747;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: bold;
+      }
     }
   }
 }
@@ -201,6 +220,8 @@
   .team-show{
     .units{
       flex-flow: row;
+      margin-bottom: 100px;
+      margin-top: 50px;
 
       .unit{
         justify-content: center;
@@ -221,7 +242,7 @@
       border-bottom: 2px solid #333;
       text-align: center;
       width: 40%;
-      margin: 0 auto;
+      margin: 20px auto;
     }
 
     #sculpture-counts{

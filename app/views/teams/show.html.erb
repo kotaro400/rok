@@ -49,8 +49,13 @@
     <p class="annotation">※招集以外に使用する彫像を全てレジェンド英雄像、エピック英雄像として計算しています</p>
   </div>
   <% if @team.user == current_user %>
-    <div class="delete-team">
-      <%= link_to "この編成を削除", team_path(@team), method: :delete, data: {confirm: "削除しますか？"} %>
+    <div class="links_wrapper">
+      <div class="edit-team">
+        <%= link_to "この編成を編集", edit_team_path(@team) %>
+      </div>
+      <div class="delete-team">
+        <%= link_to "この編成を削除", team_path(@team), method: :delete, data: {confirm: "削除しますか？"} %>
+      </div>
     </div>
   <% end %>
 </div>
