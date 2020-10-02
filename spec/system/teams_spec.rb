@@ -75,5 +75,27 @@ RSpec.describe 'Teams', type: :system do
         expect(page).not_to have_content "黄昏の峡谷"
       end
     end
+
+    describe "編成の編集" do
+      before do
+        @team = create(:team, user: @user)
+        visit team_path(@team)
+      end
+
+      it "編成の編集が可能" do
+        click_on "この編成を編集"
+        select "ベリサリウス", from: "team[unit1_main]"
+        click_on "保存する"
+        expect(page).to have_content "編成を保存しました"
+        expect(page).to have_content "ベリサリウス"
+      end
+
+      it "編成名を空にすることはできない" do
+        click_on "この編成を編集"
+        fill_in "編成名", with: nil
+        click_on "保存する"
+        expect(page).to have_content "編成名を入力してください"
+      end
+    end
   end
 end

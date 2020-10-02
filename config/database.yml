@@ -28,7 +28,6 @@ test:
   <<: *default
   database: rok_test
   port: <%= ENV["DB_PORT"] %>
-  password: password
   username: <%= ENV["DB_USERNAME"] %>
   password: <%= ENV["DB_PASSWORD"] %>
   host: <%= ENV["DB_HOST"] %>
