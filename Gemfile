@@ -50,6 +50,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem 'capistrano-rails-console'
 end
 
 group :development do
