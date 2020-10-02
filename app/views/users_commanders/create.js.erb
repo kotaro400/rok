@@ -4,7 +4,7 @@ setTimeout(function() {
   document.querySelectorAll(".notice").forEach(el => el.remove())
 }, 3000)
 
-const upRipples = document.getElementsByClassName("up");
+var upRipples = document.getElementsByClassName("up");
 
 if (upRipples) {
   for(let i = 0; i < upRipples.length; i++){
@@ -22,7 +22,7 @@ if (upRipples) {
   }
 }
 
-const downRipples = document.getElementsByClassName("down");
+var downRipples = document.getElementsByClassName("down");
 
 if (downRipples) {
   for(let i = 0; i < downRipples.length; i++){

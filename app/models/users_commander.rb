@@ -6,6 +6,7 @@ class UsersCommander < ApplicationRecord
   validates :skill2, inclusion: {in: [1, 2, 3, 4, 5]}
   validates :skill3, inclusion: {in: [1, 2, 3, 4, 5]}
   validates :skill4, inclusion: {in: [1, 2, 3, 4, 5]}
+  validates :commander_id, uniqueness: { scope: :user_id }
 
   def power
     rarity = commander.rarity == "レジェンド" ? 0.5: 0.4

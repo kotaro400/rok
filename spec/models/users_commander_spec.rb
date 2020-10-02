@@ -30,6 +30,12 @@ RSpec.describe UsersCommander, type: :model do
       users_commander.skill1 = 6
       expect(users_commander).not_to be_valid
     end
+
+    it "1人のユーザーは同じ指揮官を所持することはできない" do
+      users_commander = create(:users_commander)
+      new_users_commander = build(:users_commander, user: users_commander.user, commander: users_commander.commander)
+      expect(new_users_commander).not_to be_valid
+    end
   end
 
   describe "#power" do
