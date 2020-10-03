@@ -9,6 +9,16 @@
   </div>
 <% end %>
 
+<p id="open-form">ご要望や感想はこちら！</p>
+
+<%= form_with url: home_contact_path, id: "contact-form", local: true do |f| %>
+  <%= f.text_area :content,
+  placeholder: " 使ってみた感想や、こんな機能が欲しいなどがあればお気軽にお知らせください
+  内容は管理者のメールに匿名で送信されます",
+  rows: 10 %>
+  <%= f.submit "送信する" %>
+<% end %>
+
 <div class="top-flex-wrapper">
   <div class="start-link">
     <%= link_to rank_path do %>
@@ -37,3 +47,5 @@
     ※指揮官管理、編成管理については指揮官情報の保存のため、簡単なユーザー登録を必要とします
   </p>
 <% end %>
+
+<%= javascript_pack_tag "home/top" %>
