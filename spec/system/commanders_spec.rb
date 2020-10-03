@@ -23,12 +23,6 @@ RSpec.describe 'Commanders', type: :system do
       click_button "ログイン"
     end
 
-    it "トップから指揮官一覧に飛べる" do
-      click_on "指揮官"
-      Capybara.current_window.resize_to(1280, 1000)
-      expect(current_path).to eq commanders_path
-    end
-
     it "指揮官の詳細画面に飛べる" do
       visit "/commanders"
       click_on "源義経"

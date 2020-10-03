@@ -28,13 +28,7 @@ RSpec.describe 'Teams', type: :system do
       fill_in "パスワード", with: @user.password
       click_button "ログイン"
     end
-
-    it "トップからマイ編成に遷移可能" do
-      click_on "編成"
-      Capybara.current_window.resize_to(1280, 1000)
-      expect(current_path).to eq teams_path
-    end
-
+    
     it "新しく編成を追加できる" do
       visit teams_path
       click_on "➕"
