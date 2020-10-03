@@ -31,6 +31,7 @@ RSpec.describe 'Teams', type: :system do
 
     it "トップからマイ編成に遷移可能" do
       click_on "編成"
+      Capybara.current_window.resize_to(1280, 1000)
       expect(current_path).to eq teams_path
     end
 

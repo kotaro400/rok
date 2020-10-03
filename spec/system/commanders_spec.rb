@@ -25,6 +25,7 @@ RSpec.describe 'Commanders', type: :system do
 
     it "トップから指揮官一覧に飛べる" do
       click_on "指揮官"
+      Capybara.current_window.resize_to(1280, 1000)
       expect(current_path).to eq commanders_path
     end
 
