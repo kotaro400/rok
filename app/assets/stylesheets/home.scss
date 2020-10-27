@@ -46,39 +46,6 @@
   }
 }
 
-#open-form{
-  text-align: center;
-  color: #e0b020;
-  font-weight: bold;
-  margin-top: 30px;
-}
-
-#contact-form{
-  text-align: center;
-  display: none;
-
-  textarea{
-    display: block;
-    width: 80%;
-    margin: 40px auto;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 3px 3px 10px 2px rgba(0,0,0,0.2);
-    padding: 8px;
-    font-size: 16px;
-  }
-
-  input{
-    width: 50%;
-    font-size: 18px;
-    padding: 10px;
-    background-color: #2893ff;
-    border-radius: 25px;
-    color: #fff;
-    font-weight: bold;
-  }
-}
-
 @media screen and (min-width:900px){
   .intro{
     margin-top: 30px;
@@ -88,16 +55,6 @@
     }
 
     margin-bottom: 50px;
-  }
-
-  #contact-form{
-    textarea{
-      width: 50%;
-    }
-
-    input{
-      width: 150px;
-    }
   }
 
   .top-flex-wrapper{
